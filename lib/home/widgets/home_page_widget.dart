@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals/category/widgets/category_item_widget.dart';
+import 'package:meals/category/widgets/category_item/category_item_widget.dart';
 import 'package:meals/core/assets/data/dummy_data.dart';
 
 class Categories extends StatelessWidget {
@@ -9,7 +9,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Vamos cozinhar'),
+        title: const Text('Vamos cozinhaaaar'),
       ),
       body: GridView(
         padding: const EdgeInsets.all(25),
