@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals/home/models/category_model.dart';
+import 'package:meals/category/models/category_model.dart';
 import '../categories_meals/categories_meals_widget.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -13,7 +13,9 @@ class CategoryItem extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) {
-          return const CategoriesMeals();
+          return CategoriesMeals(
+            category,
+          );
         },
       ),
     );

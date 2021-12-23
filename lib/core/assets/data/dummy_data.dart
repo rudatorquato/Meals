@@ -1,7 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:meals/home/models/category_model.dart';
+import 'package:meals/category/models/category_model.dart';
 
 //const DUMMY_CATEGORIES = const [
 const DUMMY_CATEGORIES = [
