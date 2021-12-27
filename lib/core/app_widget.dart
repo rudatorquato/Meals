@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/category/widgets/categories_meals/categories_meals_widget.dart';
 import 'package:meals/home/widgets/home_page_widget.dart';
+import 'package:meals/utils/routes/app_routes.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -25,9 +26,9 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'RobotoCondensed',
                 ),
               )),
-      home: const Categories(),
       routes: {
-        '/categories-meals': (ctx) => CategoriesMeals(),
+        AppRoutes.HOME: (ctx) => const Categories(),
+        AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMeals(),
       },
     );
   }
