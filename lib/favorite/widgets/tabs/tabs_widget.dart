@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../category/widgets/categories_meals/categories_meals_widget.dart';
+import 'package:meals/home/widgets/home_page_widget.dart';
 import '../favorite/favorite_widget.dart';
 
 class TabsWidget extends StatelessWidget {
@@ -13,8 +13,11 @@ class TabsWidget extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Vamos cozinhar?'),
+          title: const Center(
+            child: Text('Vamos cozinhar?'),
+          ),
           bottom: const TabBar(
+            indicatorColor: Colors.amber,
             tabs: [
               Tab(
                 icon: Icon(Icons.category),
@@ -27,10 +30,10 @@ class TabsWidget extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            CategoriesMeals(),
-            const FavoriteWidget(),
+            Categories(),
+            FavoriteWidget(),
           ],
         ),
       ),
