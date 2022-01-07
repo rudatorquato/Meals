@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class MainDrawer extends StatelessWidget {
-  const MainDrawer({Key? key}) : super(key: key);
+class MainDrawerWidget extends StatelessWidget {
+  const MainDrawerWidget({Key? key}) : super(key: key);
 
   Widget _createItem(IconData icon, String label) {
     return ListTile(

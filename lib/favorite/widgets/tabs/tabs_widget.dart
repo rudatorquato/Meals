@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/home/widgets/home_page_widget.dart';
 import '../favorite/favorite_widget.dart';
-import '../../../drawer/main_drawer.dart';
+import '../../../drawer/widgets/main_drawer_widget.dart';
 
 class TabsWidget extends StatefulWidget {
   const TabsWidget({
@@ -41,7 +41,7 @@ class _TabsWidgetState extends State<TabsWidget> {
             ),
           ),
         ),
-        drawer: const MainDrawer(),
+        drawer: const MainDrawerWidget(),
         body: screens[selectedWidgetIndex],
         bottomNavigationBar: BottomNavigationBar(
           //backgroundColor: Colors.pink,
