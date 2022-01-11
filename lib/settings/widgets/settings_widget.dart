@@ -3,8 +3,10 @@ import 'package:meals/drawer/widgets/main_drawer_widget.dart';
 import 'package:meals/settings/models/settings_model.dart';
 
 class SettingsWidget extends StatefulWidget {
+  final Settings settings;
   final Function(Settings) onSettingsWidget;
   const SettingsWidget(
+    this.settings,
     this.onSettingsWidget, {
     Key? key,
   }) : super(key: key);
@@ -14,7 +16,13 @@ class SettingsWidget extends StatefulWidget {
 }
 
 class _SettingsWidgetState extends State<SettingsWidget> {
-  var settings = Settings();
+  Settings settings = Settings();
+
+  @override
+  void initState() {
+    super.initState();
+    settings = widget.settings;
+  }
 
   Widget _createSwitch(
     String title,
