@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:meals/home/widgets/home_page_widget.dart';
+import 'package:meals/meal/models/meal.dart';
 import '../favorite/favorite_widget.dart';
 import '../../../drawer/widgets/main_drawer_widget.dart';
 
 class TabsWidget extends StatefulWidget {
-  const TabsWidget({
+  final List<Meal> favoriteMeals;
+
+  const TabsWidget(
+    this.favoriteMeals, {
     Key? key,
   }) : super(key: key);
 
@@ -14,14 +18,20 @@ class TabsWidget extends StatefulWidget {
 
 class _TabsWidgetState extends State<TabsWidget> {
   int selectedWidgetIndex = 0;
-  final List<String> titles = [
+  final List<String> _titles = [
     'Lista de Categorias',
     'Meus Favoritos',
   ];
-  final List<Widget> screens = [
-    const Categories(),
-    const FavoriteWidget(),
-  ];
+  late List<Widget> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      const Categories(),
+      FavoriteWidget(widget.favoriteMeals),
+    ];
+  }
 
   _selectWidget(int index) {
     setState(() {
@@ -37,12 +47,12 @@ class _TabsWidgetState extends State<TabsWidget> {
         appBar: AppBar(
           title: Center(
             child: Text(
-              titles[selectedWidgetIndex],
+              _titles[selectedWidgetIndex],
             ),
           ),
         ),
         drawer: const MainDrawerWidget(),
-        body: screens[selectedWidgetIndex],
+        body: _screens[selectedWidgetIndex],
         bottomNavigationBar: BottomNavigationBar(
           //backgroundColor: Colors.pink,
           unselectedItemColor: Colors.white,

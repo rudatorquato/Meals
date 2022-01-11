@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:meals/meal/models/meal.dart';
 
 class MealDetail extends StatelessWidget {
+  final Function(Meal) onToggleFavorite;
+  final bool Function(Meal) isFavorite;
+
+  const MealDetail(
+    this.onToggleFavorite,
+    this.isFavorite, {
+    Key? key,
+  }) : super(key: key);
+
   Widget _createSectionTitle(BuildContext context, String tilte) {
     return Container(
       margin: const EdgeInsets.symmetric(
@@ -28,10 +37,6 @@ class MealDetail extends StatelessWidget {
       child: child,
     );
   }
-
-  const MealDetail({
-    Key? key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -93,9 +98,9 @@ class MealDetail extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.star),
+        child: Icon(isFavorite(meal) ? Icons.star : Icons.star_border),
         onPressed: () {
-          Navigator.of(context).pop(meal.title);
+          onToggleFavorite(meal);
         },
       ),
     );

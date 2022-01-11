@@ -29,7 +29,7 @@ class CategoriesMeals extends StatelessWidget {
         itemCount: categoryMeals.length,
         itemBuilder: (ctx, index) {
           return MealItem(
-            meal: categoryMeals[index],
+            categoryMeals[index],
           );
         },
       ),
