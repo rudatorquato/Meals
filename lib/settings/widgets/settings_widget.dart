@@ -3,7 +3,11 @@ import 'package:meals/drawer/widgets/main_drawer_widget.dart';
 import 'package:meals/settings/models/settings_model.dart';
 
 class SettingsWidget extends StatefulWidget {
-  const SettingsWidget({Key? key}) : super(key: key);
+  final Function(Settings) onSettingsWidget;
+  const SettingsWidget(
+    this.onSettingsWidget, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<SettingsWidget> createState() => _SettingsWidgetState();
@@ -22,7 +26,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
       title: Text(title),
       subtitle: Text(subtitle),
       value: value,
-      onChanged: onChanged,
+      onChanged: (value) {
+        onChanged(value);
+        widget.onSettingsWidget(settings);
+      },
     );
   }
 
