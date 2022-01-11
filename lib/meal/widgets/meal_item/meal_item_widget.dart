@@ -20,8 +20,10 @@ class MealItem extends StatelessWidget {
         .then(
       (result) {
         if (result == null) {
+          // ignore: avoid_print
           print('sem');
         } else {
+          // ignore: avoid_print
           print('$result');
         }
       },
